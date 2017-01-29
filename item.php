@@ -5,7 +5,8 @@ if(count($_POST)) {
 	$group_name = strtoupper($_POST['group_name']);
 	$item_name = $_POST['item_name'];
 	$opening_balance = $_POST['opening_balance'];
-	$opening_rate = $_POST['opening_rate'];
+	$opening_value = $_POST['opening_value'];
+	$opening_rate = $opening_value * $opening_balance;
 	
 	$res_str =<<<XML
 	<ENVELOPE>
@@ -39,7 +40,7 @@ if(count($_POST)) {
 <PARENT>{$group_name}</PARENT>
 <BASEUNITS>NOS</BASEUNITS>
 <OPENINGBALANCE>{$opening_balance} NOS</OPENINGBALANCE>
-<OPENINGRATE>{$opening_rate}/NOS</OPENINGRATE>
+<OPENINGVALUE>{$opening_rate}</OPENINGVALUE>
 <BATCHALLOCATIONS.LIST>
 <NAME>Primary Batch</NAME>
 <BATCHNAME>Primary Batch</BATCHNAME>
@@ -57,7 +58,7 @@ if(count($_POST)) {
 </ENVELOPE>
 XML;
 	
-	
+	//var_dump($res_str);die;
 	
 	$url = "http://localhost:9000/";
 
@@ -136,9 +137,9 @@ XML;
 			  </div>
 			  
 			  <div class="form-group">
-				<label for="opening_rate" class="col-sm-4 control-label">Opening Rate</label>
+				<label for="opening_value" class="col-sm-4 control-label">Unit Price</label>
 				<div class="col-sm-6">
-				  <input type="text" class="form-control" id="opening_rate" placeholder="Item Opening Rate" name="opening_rate" required>
+				  <input type="text" class="form-control" id="opening_value" placeholder="Item Unit Price" name="opening_value" required>
 				</div>
 			  </div>
 			  

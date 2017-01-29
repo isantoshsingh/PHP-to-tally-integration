@@ -27,13 +27,13 @@ $url = "http://localhost:9000/";
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 300);
         $data = curl_exec($ch);
 		//echo '<pre>';
-		//var_dump($data);
+		//var_dump($data);die;
 
         curl_close($ch);
 		// get the xml object 
     $object = simplexml_load_string( $data );
 	
-	//print_r($object);
+	//print_r($object);die;
 	
 ?>
 <!DOCTYPE html>
