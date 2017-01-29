@@ -111,8 +111,7 @@ XML;
 			<?php if(isset($msg) && $msg) :?>
 			<div class="alert alert-success" role="alert"><?=$msg?></div>
 			<?php endif;?>
-			
-			<h3>Insert data into Tally</h3>
+			<h3>Insert data into Tally <div class="pull-right"><a href="export.php">Item List</a></div></h3>
 			<hr>
 			
 			<form class="form-horizontal" method="post" action="">
